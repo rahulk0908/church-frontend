@@ -13,6 +13,8 @@ const HeroSection = () => {
     });
   }, []);
 
+  if (!hero) return null;
+
   return (
     <section
       id="home"
@@ -21,8 +23,8 @@ const HeroSection = () => {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src={urlFor(hero?.image).width(1600).auto("format").url()}
-          alt="Vishranthi Church at golden hour"
+          src={urlFor(hero.image).width(1600).auto("format").url()}
+          alt={hero.alt}
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/50 to-primary/80" />

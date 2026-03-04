@@ -16,7 +16,7 @@ const GallerySection = () => {
       setImages(data);
     });
   }, []);
-  console.log({ images });
+
   return (
     <section id="gallery" className="py-24 bg-background">
       <div className="container mx-auto px-6">
