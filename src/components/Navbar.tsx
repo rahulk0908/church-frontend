@@ -21,7 +21,7 @@ const Navbar = () => {
         <a href="#home" className="flex items-center gap-3">
           <img src={ChurchLogo} style={{ width: "50px", height: "50px" }} />
           <span className="font-display text-xl font-bold text-primary-foreground tracking-wide">
-            Vishranthi Church
+            CSI Vishranthi Church
           </span>
         </a>
 

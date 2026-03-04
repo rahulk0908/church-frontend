@@ -46,7 +46,7 @@ const HeroSection = () => {
           transition={{ delay: 0.4 }}
           className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-primary-foreground mb-6 leading-tight"
         >
-          Vishranthi Church
+          CSI Vishranthi Church
           <br />
           <span className="text-gradient-gold">Bockapatna</span>
         </motion.h1>
