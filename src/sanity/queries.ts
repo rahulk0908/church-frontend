@@ -16,7 +16,7 @@ export const fetchPostsQuery = `
 `;
 
 export const fetchLeadershipQuery = `
-*[_type == "leadership"]{
+*[_type == "leadership"] | order(order asc){
   name,
   designation,
   description,
