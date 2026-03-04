@@ -1,10 +1,55 @@
-import { Cross, Mail, MapPin, Phone } from "lucide-react";
+import { Cross, Mail, MapPin, Phone, Send } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser";
+
+async function sendEmail(toast, form) {
+  console.log(import.meta.env.VITE_EMAIL_SERVICE_ID, "service id");
+  emailjs
+    .send(
+      import.meta.env.VITE_EMAIL_SERVICE_ID, // service id
+      import.meta.env.VITE_EMAIL_TEMPLATE_ID, // template id
+      {
+        name: "Rahul",
+        email: "rahulkakkadan98@gmail.com",
+        message:
+          form.name.trim() + " " + form.phone.trim() + " " + form.query.trim(),
+      },
+      import.meta.env.VITE_PUBLIC_KEY, // public key
+    )
+    .then(() => {
+      toast({
+        title: "Query sent!",
+        description: "We'll get back to you soon.",
+      });
+    })
+    .catch(() => {
+      toast({ title: "Failed to send message", variant: "destructive" });
+    });
+}
 
 const FooterSection = () => {
+  const { toast } = useToast();
+  const [form, setForm] = useState({ name: "", phone: "", query: "" });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!form.name.trim() || !form.phone.trim() || !form.query.trim()) {
+      toast({ title: "Please fill in all fields", variant: "destructive" });
+      return;
+    }
+    await sendEmail(toast, form);
+    setForm({ name: "", phone: "", query: "" });
+  };
+  console.log(import.meta.env.VITE_EMAIL_SERVICE_ID, "service id");
+
   return (
     <footer id="contact" className="bg-primary text-primary-foreground py-16">
       <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-3 gap-12 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Church Info */}
           <div>
             <div className="flex items-center gap-2 mb-4">
@@ -61,6 +106,43 @@ const FooterSection = () => {
               </li>
             </ul>
           </div>
+        </div>
+
+        {/* Hall Booking Form */}
+        <div>
+          <h3 className="font-display text-lg font-bold mb-4">
+            Hall Booking Enquiry
+          </h3>
+          <form onSubmit={handleSubmit} className="space-y-3">
+            <Input
+              placeholder="Your Name"
+              value={form.name}
+              onChange={(e) => setForm({ ...form, name: e.target.value })}
+              className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40 h-9 text-sm"
+            />
+            <Input
+              type="number"
+              placeholder="Your Phone number"
+              value={form.phone}
+              onChange={(e) => setForm({ ...form, phone: e.target.value })}
+              className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40 h-9 text-sm"
+            />
+            <Textarea
+              placeholder="Your Query"
+              value={form.query}
+              onChange={(e) => setForm({ ...form, query: e.target.value })}
+              className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40 min-h-[60px] text-sm resize-none"
+            />
+            <Button
+              type="submit"
+              variant="secondary"
+              size="sm"
+              className="w-full gap-2"
+            >
+              <Send className="w-3.5 h-3.5" />
+              Send Query
+            </Button>
+          </form>
         </div>
 
         <div className="border-t border-primary-foreground/10 pt-8 text-center">
