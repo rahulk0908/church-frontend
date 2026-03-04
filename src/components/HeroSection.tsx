@@ -11,7 +11,6 @@ const HeroSection = () => {
     fetchHeroImage().then((data) => {
       setHero(data);
     });
-    console.log({ hero });
   }, []);
 
   return (
