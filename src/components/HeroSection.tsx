@@ -22,7 +22,7 @@ const HeroSection = () => {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src={urlFor(hero.image).width(1600).auto("format").url()}
+          src={urlFor(hero?.image).width(1600).auto("format").url()}
           alt="Vishranthi Church at golden hour"
           className="w-full h-full object-cover"
         />
