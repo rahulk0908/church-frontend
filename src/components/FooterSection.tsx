@@ -106,43 +106,43 @@ const FooterSection = () => {
               </li>
             </ul>
           </div>
-        </div>
 
-        {/* Hall Booking Form */}
-        <div>
-          <h3 className="font-display text-lg font-bold mb-4">
-            Hall Booking Enquiry
-          </h3>
-          <form onSubmit={handleSubmit} className="space-y-3">
-            <Input
-              placeholder="Your Name"
-              value={form.name}
-              onChange={(e) => setForm({ ...form, name: e.target.value })}
-              className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40 h-9 text-sm"
-            />
-            <Input
-              type="number"
-              placeholder="Your Phone number"
-              value={form.phone}
-              onChange={(e) => setForm({ ...form, phone: e.target.value })}
-              className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40 h-9 text-sm"
-            />
-            <Textarea
-              placeholder="Your Query"
-              value={form.query}
-              onChange={(e) => setForm({ ...form, query: e.target.value })}
-              className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40 min-h-[60px] text-sm resize-none"
-            />
-            <Button
-              type="submit"
-              variant="secondary"
-              size="sm"
-              className="w-full gap-2"
-            >
-              <Send className="w-3.5 h-3.5" />
-              Send Query
-            </Button>
-          </form>
+          {/* Hall Booking Form */}
+          <div>
+            <h3 className="font-display text-lg font-bold mb-4">
+              Hall Booking Enquiry
+            </h3>
+            <form onSubmit={handleSubmit} className="space-y-3">
+              <Input
+                placeholder="Your Name"
+                value={form.name}
+                onChange={(e) => setForm({ ...form, name: e.target.value })}
+                className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40 h-9 text-sm"
+              />
+              <Input
+                type="number"
+                placeholder="Your Phone number"
+                value={form.phone}
+                onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40 h-9 text-sm"
+              />
+              <Textarea
+                placeholder="Your Query"
+                value={form.query}
+                onChange={(e) => setForm({ ...form, query: e.target.value })}
+                className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40 min-h-[60px] text-sm resize-none"
+              />
+              <Button
+                type="submit"
+                variant="secondary"
+                size="sm"
+                className="w-full gap-2"
+              >
+                <Send className="w-3.5 h-3.5" />
+                Send Query
+              </Button>
+            </form>
+          </div>
         </div>
 
         <div className="border-t border-primary-foreground/10 pt-8 text-center">
