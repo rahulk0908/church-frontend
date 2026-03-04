@@ -26,6 +26,22 @@ const events = [
     description:
       "Dive deeper into scripture with our women's weekly Bible study group.",
   },
+  {
+    title: "Senior Citizens Prayer Meeting",
+    date: "March 1, 2026",
+    time: "10:00 AM",
+    location: "Church Hall",
+    description:
+      "Senior Citizens Prayer Meeting is conducted 1st Sunday of every month",
+  },
+  {
+    title: "Sunday School",
+    date: "Every Sunday",
+    time: "10:00 AM",
+    location: "Church",
+    description:
+      "Sunday school for kids is conducted every Sunday post church service.",
+  },
 ];
 
 const EventsSection = () => {
