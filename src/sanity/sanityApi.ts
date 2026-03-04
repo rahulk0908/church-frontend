@@ -5,7 +5,9 @@ import {
   fetchLeadershipQuery,
   fetchImagesQuery,
   fetchBibleVersesQuery,
+  fetchHeroImageQuery,
 } from "./queries";
+
 export const fetchTimelines = () => sanityClient.fetch(fetchTimelinesQuery);
 
 export const fetchPosts = () => sanityClient.fetch(fetchPostsQuery);
@@ -15,3 +17,5 @@ export const fetchLeadership = () => sanityClient.fetch(fetchLeadershipQuery);
 export const fetchImages = () => sanityClient.fetch(fetchImagesQuery);
 
 export const fetchBibleVerses = () => sanityClient.fetch(fetchBibleVersesQuery);
+
+export const fetchHeroImage = () => sanityClient.fetch(fetchHeroImageQuery);

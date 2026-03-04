@@ -36,3 +36,10 @@ export const fetchBibleVersesQuery = `
   verse
 }
 `;
+
+export const fetchHeroImageQuery = `
+*[_type == "churchHeroImage"][0]{
+  image,
+  alt
+}
+`;

@@ -1,8 +1,19 @@
 import { motion } from "framer-motion";
 import { Clock, MapPin } from "lucide-react";
-import heroImage from "@/assets/church.jpeg";
+import { fetchHeroImage } from "@/sanity/sanityApi";
+import { useEffect, useState } from "react";
+import { urlFor } from "@/sanity/image";
 
 const HeroSection = () => {
+  const [hero, setHero] = useState(null);
+
+  useEffect(() => {
+    fetchHeroImage().then((data) => {
+      setHero(data);
+    });
+    console.log({ hero });
+  }, []);
+
   return (
     <section
       id="home"
@@ -11,7 +22,7 @@ const HeroSection = () => {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src={heroImage}
+          src={urlFor(hero.image).width(1600).auto("format").url()}
           alt="Vishranthi Church at golden hour"
           className="w-full h-full object-cover"
         />
