@@ -42,6 +42,13 @@ const events = [
     description:
       "Sunday school for kids is conducted every Sunday post church service.",
   },
+  {
+    title: "Prayer cell",
+    date: "Every Saturday",
+    time: "6:30 to 7:30",
+    location: "Bell tower",
+    description: "Prayer cell is conducted every saturday in Bell Tower",
+  },
 ];
 
 const EventsSection = () => {
